@@ -45,63 +45,44 @@
 			<div class=" col-sm-6"> 
 		
 				<h1 align="center">Option de paiement</h1>
-				<form align="center">
-					<br>
-					<td>
-						Type de carte :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						
+				<form  action="insert_piscine_method.php" method="post">
+       			<p>
 
-<div>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="Visa" name="drone" value="Visa"checked>
-  <label for="huey">Visa</label>
-</div>
+      				<br><label for="Type_carte" align="left">Type de carte</label> :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <input type="text" name="Type_carte" id="Type_carte" align="center" placeholder="Visa, MasterCard, PayPal..."/><br />
+        			<br><label for="Num_carte" align="left">Numéro carte</label> :  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="number" name="Num_carte" id="Num_carte" align="center" placeholder="16 chiffres"/><br />
+       				<br><label for="Nom_carte" align="left">Nom carte</label> : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" name="Nom_carte" id="Nom_carte" align="center" placeholder="Nom propriétaire"/><br />
+        			<br><label for="Date_expiration" align="left"> Date d'expiration</label> :  <input type="number" name="Date_expiration" id="Date_expiration"align="center" placeholder="0519 (Mai 2019)"/><br />
+        			<br><label for="Code_sécurité" align="left">Code de sécurité</label> :  <input type="number" name="Code_sécurité" id="Code_sécurité"align="center" placeholder="3 où 4 chiffres" /><br />
+        			<br>
 
-<div>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="dewey" name="drone" value="MasterCard">
-  <label for="dewey">MasterCard</label>
-</div>
+					<input class="bouton3" type="submit" value="Envoyer" align="center" />
 
-<div>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="American Express" name="drone" value="American Express">
-  <label for="louie">American Express</label>
-</div>
-
-<div>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="louie" name="drone" value="PayPal">
-  <label for="PayPal">PayPal</label>
-</div>
-</td>
+					
 
 
+				</p>
+    			</form>
 
 
+    		</div>
+    	</div>
+    </div>
+</header>
+
+<?php
+// Connexion à la base de données
+try
+{
+	$bdd = new PDO('mysql:host=localhost;dbname=piscine;charset=utf8', 'rot', '');
+}
+catch(Exception $e)
+{
+        die('Erreur : '.$e->getMessage());
+}
+
+?>
 
 
-
-						<br>
-						<td>Nom affiché sur la carte :</td>
-						<td><input  id="numero_de_carte" type=number placeholder="Même nom sur carte" required></td><br>
-						<br>
-						<td>Date d'expiration :</td></tr>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<td><input type="month" id="date" required></td><br>
-						<br>
-						<td>Code de sécurité:</td></tr>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<td><input type=number required id="securite" placeholder="3 ou 4 chiffres"></td><br>
-						<br><br>
-
-						<a href="#" class="bouton" align="center">Valider</a>
-					</td>
-				</form>	
-			</div>
-
-
-	
-		</div>
-</div>
-
-
- 	</header>
-</div>
 <?php require 'footer.php'; ?>
 
 
